@@ -1,0 +1,47 @@
+
+
+<NavBar>
+    rows: 1
+    size_hint_y: 0.15
+    canvas.before:
+        Color:
+            rgb: 0.227, 0.478, 0.18
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Button:
+        text: 'Inventory'
+        on_release: 
+            root.parent.mContainer.transition.direction = 'right' 
+            root.parent.mContainer.current = 'inventory'
+    Button:
+        text: 'Recipes'
+        on_release: 
+            root.parent.mContainer.transition.direction = 'left' if root.parent.mContainer.current == 'inventory' else 'right' 
+            root.parent.mContainer.current = 'recipes'
+    Button:
+        text: 'Meals'
+        on_release: 
+            root.parent.mContainer.transition.direction = 'right' if root.parent.mContainer.current == 'shopping' else 'left'
+            root.parent.mContainer.current = 'mealplan'
+    Button:
+        text: 'Shopping List'
+        on_release: 
+            root.parent.mContainer.transition.direction = 'left' 
+            root.parent.mContainer.current = 'shopping'
+
+
+
+
+<AppContainer>
+    mContainer: mContainer
+    rows: 2
+    canvas:
+        Color:
+            rgb: (0.051, 0.051, 0.051)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ModuleContainer:
+        id: mContainer
+    NavBar:

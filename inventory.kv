@@ -1,0 +1,308 @@
+#:import Button kivy.uix.button
+#:import TextInput kivy.uix.textinput
+#:import Label kivy.uix.label
+#:import GridLayout kivy.uix.gridlayout
+<ItemInput@TextInput>
+    size_hint_y: 0.1
+    size_hint_x: 1
+    pos: self.parent.pos
+<QuanUpdate@GridLayout>
+    size_hint: (None, 1)
+    width: 130 if root.updateMenu else 0
+    rows: 1
+    cols: 2
+    id: updateQuan
+    TextInput:
+        size_hint_x: 0.7
+        text: self.parent.parent.quan.text
+    Button:
+        size_hint_x: None
+        text: 'Updt'
+<productItem>
+    id: item
+    name: name
+    quan: quan
+    unit: unit
+    size_hint_y: None
+    height: 80
+    canvas.before:
+        Color:
+            rgba: (0,1,0,1)
+        Rectangle:
+            size: self.size
+            pos: 0,0
+    Button:
+        size_hint_x: 1
+        background_color: (0,0,0,0)
+        text: ''
+        on_press: self.background_color = (1,1,1,1)
+        on_release: self.parent.parent.parent.parent.prodInfo(self.parent.prodID)
+    GridLayout:
+        rows: 1
+        Label:
+            id: name
+            text: ''
+            size_hint_x: 0.7
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+        Label:
+            size_hint_x: 0.25
+            id: quan
+            text: ''
+        Label:
+            size_hint_x: 0.05
+            id: unit
+            text: ''
+<addItemWindow>
+    add: add
+    name: name
+    desc: desc
+    quan: quan
+    unit: unit
+    fat: fat
+    prot: prot
+    carbs: carbs
+    cal: cal
+    rows: 2
+    pos_hint: {'x': 0.1, 'y': 0.1}
+    size_hint: 0.8, 0.8
+    canvas:
+        Color:
+            rgba: (0,0,1,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    GridLayout:
+        rows: 4
+        size_hint_y: 0.85
+        canvas:
+            Color:
+                rgb: (0,0,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        GridLayout:
+            padding: self.height/15
+            spacing: self.height/15
+            cols: 2
+            TextInput:
+                multiline: False
+                id: name
+                hint_text: 'Product name (required)' 
+                input_filter: None
+            TextInput:
+                id: desc
+                hint_text: 'Description'
+                input_filter: None
+        GridLayout:
+            padding: self.height/15
+            spacing: self.height/15
+            cols: 2
+            TextInput:
+                multiline: False
+                id: quan
+                hint_text: 'Quantity (required)'
+                input_filter: 'float'
+            Spinner:
+                id: unit
+                text: 'Unit (required)'
+                values: 'g', 'kg', 'l', 'ml', 'units'
+        Label:
+            size_hint_y: 0.2
+            text: 'Nutritional Information (per 100g)'
+        GridLayout:
+            cols: 2
+            rows: 3
+            size_hint_y: 1.7
+            padding: self.height/15
+            spacing: self.height/15
+            TextInput:
+                multiline: False
+                id: cal
+                hint_text: 'Calories (kcal) (required)'
+                input_filter: 'float'
+            TextInput:
+                multiline: False
+                id: fat
+                hint_text: 'Fat (g)'
+                input_filter: 'float'
+            TextInput:
+                multiline: False
+                id: prot
+                hint_text: 'Protein (g)'
+                input_filter: 'float'
+            TextInput:
+                multiline: False
+                id: carbs
+                hint_text: 'Carbohydrates (g)'
+                input_filter: 'float'
+    GridLayout:
+        size_hint_y: 0.15 
+        cols: 2
+        rows: 1
+        canvas:
+            Color:
+                rgb: (0,0.5,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Button:
+            text: 'Cancel'
+            on_release: self.parent.parent.parent.cancelNew()
+        Button:
+            id: add
+            text: 'Add'
+            on_release: self.parent.parent.parent.addProd()
+            disabled: True if self.parent.parent.name.text == '' or self.parent.parent.cal.text == '' or self.parent.parent.quan.text == '' or self.parent.parent.unit.text == 'Unit (required)' else False
+<productInfo>
+    add: add
+    name: name
+    desc: desc
+    quan: quan
+    unit: unit
+    fat: fat
+    prot: prot
+    carbs: carbs
+    cal: cal
+    rows: 2
+    pos_hint: {'x': 0.1, 'y': 0.1}
+    size_hint: 0.8, 0.8
+    canvas:
+        Color:
+            rgba: (0,0,1,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    GridLayout:
+        rows: 4
+        size_hint_y: 0.85
+        canvas:
+            Color:
+                rgb: (0,0,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        GridLayout:
+            padding: self.height/15
+            spacing: self.height/15
+            rows: 2
+            cols: 2
+            Label:
+                text: 'Name'
+                size_hint_y: 0.3
+            Label:
+                text: 'Description'
+                size_hint_y: 0.3
+            Label:
+                id: name
+                text: ''
+            Label:
+                id: desc
+                text: ''
+        GridLayout:
+            padding: self.height/15
+            spacing: self.height/15
+            cols: 2
+            Label:
+                id: quan
+                text: ''
+            Label:
+                id: unit
+                text: ''
+        Label:
+            size_hint_y: 0.2
+            text: 'Nutritional Information (per 100g)'
+        GridLayout:
+            cols: 2
+            rows: 4
+            size_hint_y: 1.7
+            padding: self.height/15
+            spacing: self.height/15
+            Label:
+                text: 'Calories'
+                size_hint_y: 0.1
+            Label:
+                text: 'Lipids'
+                size_hint_y: 0.1
+            Label:
+                id: cal
+                text: ''
+            Label:
+                id: fat
+                text: ''
+            Label:
+                text: 'Protein'
+                size_hint_y: 0.1
+            Label:
+                text: 'Carbohydrates'
+                size_hint_y: 0.1
+            Label:
+                id: prot
+                text: ''
+            Label:
+                id: carbs
+                text: ''
+    GridLayout:
+        size_hint_y: 0.15 
+        cols: 2
+        rows: 1
+        canvas:
+            Color:
+                rgb: (0,0.5,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Button:
+            text: 'Close'
+            on_release: self.parent.parent.parent.closeInfo()
+        Button:
+            id: add
+            text: 'Edit'
+            on_release: 
+
+<InventoryWindow>
+    addBut: addBut
+    id: inwin
+    inv_scroll: inv_scroll
+    canvas:
+        Color:
+            rgba: (0,1,0,0.1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        size: self.size
+        canvas:
+            Color:
+                rgba: (1,0,0,0.5)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        GridLayout:
+            id: inv_scroll
+            cols: 1
+            spacing: 10
+            size_hint_x: 1
+            size_hint_y: None
+            height: self.minimum_height
+            padding: 10
+            canvas:
+                Color:
+                    rgba: (0,0,1,0.5)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+    Button:
+        id: addBut
+        inv_scroll: inv_scroll
+        text: "+"
+        size_hint: 0.1, 0.1
+        pos: self.parent.width-(self.parent.width/8), self.parent.height/50
+        on_release: inwin.newProd()
+
+
+
+                

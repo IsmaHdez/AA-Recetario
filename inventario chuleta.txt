@@ -1,0 +1,19 @@
+Python:
+	- Objeto producto
+	- Objeto listhandler
+		- Contiene una lista de productos
+		- Permite borrar productos
+		- Permite actualizar productos
+		- Genera los datos para que lo use Kivy en display
+Kivy:
+	- Ventana inventario
+		- Lista productos
+			- Items
+				- Ventana mostrar
+					- Boton actualizar
+						- Ventana actualizar
+				- Boton borrar
+				- Boton cantidad
+					- Actualizar cantidad
+		- Boton añadir
+			- Ventana añadir

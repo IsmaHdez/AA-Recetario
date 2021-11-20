@@ -1,0 +1,9 @@
+id,name,desc,quan,qunit,cal,prot,carb,fat
+0, Lemon, A fruit used for flavour and aroma,15.0, units,134.56,3.56,45.13,0.0
+1, Milk, ,6.0, l,243.98,25.6,13.0,15.0
+2, Bacon, Oscar Mayer extra smoky,300.0, g,359.58,12.45,65.45,46.56
+3,Peras limoneras,Me encantan las peras,69.0,units,123.0,0.0,100.0,0.0
+4,Yogur Griego Danone,Yogur blanquito ricote,12.0,units,123.0,2.0,0.0,8.0
+5,Mantequilla,Mantequilla ricona,250.0,g,123.0,5.0,5.0,54.0
+6,Cola Cao	,DESAYUNO Y MERIENDA,400.0,g,1231.0,3.0,23.0,123.0
+7,Nuevo Producto,,12.0,kg,12.0,12.0,12.0,12.0

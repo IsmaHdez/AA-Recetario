@@ -1,0 +1,5 @@
+id,name,desc,quan,qunit,cal,prot,carb,fat
+0, Lemon, A fruit used for flavour and aroma,15.0, units,134.56,3.56,45.13,0.0
+1, Milk, ,6.0, l,243.98,25.6,13.0,15.0
+2, Bacon, Oscar Mayer extra smoky,300.0, g,359.58,12.45,65.45,46.56
+3,Peras limoneras,Me encantan las peras,69.0,units,123.0,0.0,100.0,0.0

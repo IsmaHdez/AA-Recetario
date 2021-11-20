@@ -1,0 +1,20 @@
+Vittler App Todo List
+
+Búsqueda:
+    - Implementar la función de buscar en OpenFoodFacts
+        + El buscador es un módulo Kivy independiente que se puede lanzar desde 
+        varios módulos, como el recetario, inventario o lista de la compra. 
+        + El buscador es llamado por una función buscar en cada uno de los módulos,
+        la cual devuelve un item.
+        + El buscador tiene una función seleccionar al clicar en un item, que muestra
+        la información nutricional y pide introducir una cantidad. Al clicar en 'aceptar'
+        se devuelve un objeto producto con la cantidad especificada. 
+
+Unificar la información:
+    - Decidir que hacer con la información nutricional y demás. Por ahora:
+        + Cada objeto producto contiene la cantidad que hay del mismo.
+        + Se debe poder conocer la información nutricional por 100g, o por la cantidad
+        que el usuario desee introducir. 
+
+Crear el contenedor base de la app:
+    - POR AHORA, la app se estructura en base a pestañas, con las cuatro pestañas para los cuatro módulos

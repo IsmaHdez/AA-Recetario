@@ -99,6 +99,7 @@ class addItemWindow(GridLayout):
     pass
 
 class productWindow(GridLayout):
+    # comentario
     pass
 
 class productItem(RelativeLayout):
